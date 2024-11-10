@@ -2,10 +2,10 @@ package application
 
 import (
 	"errors"
+	"fmt"
 
-	uuid "github.com/satori/go.uuid"
 	"github.com/asaskevich/govalidator"
-
+	uuid "github.com/satori/go.uuid"
 )
 func init() {
 	govalidator.SetFieldsRequiredByDefault(true)
@@ -72,6 +72,7 @@ func (p *Product) IsValid() (bool, error) {
 	}
 
 	if p.Price < 0 {
+		fmt.Println("the price must be greater or equal zero")
 		return false, errors.New("the price must be greater or equal zero")
 	}
 
