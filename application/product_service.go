@@ -1,6 +1,5 @@
 package application
 
-import "fmt"
 
 type ProductService struct {
 	Persistence ProductPersistenceInterface
@@ -25,7 +24,6 @@ func (s *ProductService) Create(name string, price float64) (ProductInterface, e
 
 	_, err := product.IsValid()
 	if err != nil {
-		fmt.Println("DEU RUIM", err)
 		return &Product{}, err
 	}
 
